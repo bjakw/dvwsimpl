@@ -1,0 +1,26 @@
+verDict = {'dockerOK':None, 'npmOK':None, 'nodeOK':None}
+installDocker = "sudo apt install docker-ce -y"
+installNpm = "sudo apt install npm -y"
+installNode = "sudo apt install nodejs -y"
+getDVWS = "git clone https://github.com/snoopysecurity/dvws-node.git /opt/dvws-node"
+installDVWSDependencies = "cd /opt/dvws-node/ && npm install --build-from-source && npm install libxmljs"
+createTestDVWS= "cd /opt/dvws-node/ && node startup_script.js"
+startDVWS = "cd /opt/dvws-node/ && npm run dvws >/dev/null &"
+getMySQL = "sudo docker run -p 3306:3306 --name dvws-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql:5.7 > /dev/null"
+getMongoDB = "sudo docker run -d -p 27017-27019:27017-27019 --name mongodb mongo:4.0.4"
+checkDocker = "sudo service docker status > /dev/null"
+startDocker = "sudo service docker start > /dev/null"
+enableDocker = "systemctl enable docker > /dev/null"
+dockerSubStr = 'Docker version'
+dockerVerCheck = 'sudo docker --version >/dev/null'
+npmSubStr = '6.'
+npmVerCheck = 'npm  --version >/dev/null'
+nodeSubStr = 'v10.'
+nodeVerCheck = 'nodejs --version > /dev/null'
+dockerMissing ="Docker Engine is not installed on your System, it will be installed later.."
+npmMissing ="NPM is not installed on your System, it will be installed later.."
+nodeMissing ="Node JS is not installed on your System, it will be installed later.."
+introText = "The Script will now check for all needed dependencies and install them if needed"
+configPort ="cd /opt/dvws-node/ && sed -i 's/80/8000/' config.js"
+configSwagger ="rm /opt/dvws-node/swagger.js && cp /opt/dvws-node/swagger/swagger.js /opt/dvws-node/"
+getSwagger= "git clone https://github.com/bjakw/swaggeredit.git /opt/dvws-node/swagger"
